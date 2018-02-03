@@ -26,7 +26,7 @@ $sal =  mysqli_num_rows($res5);
   <li><a href="ajoutMatiere.php" class="waves-effect"><i class="material-icons">library_books</i>Ajouter matiere<span class="new badge" data-badge-caption=" "><?php echo $mtr ?></span></a></li>
   <li><a href="ajoutClasse.php" class="waves-effect"><i class="material-icons">add_circle_outline</i>Ajouter une classe<span class="new badge" data-badge-caption=" "><?php echo $cls ?></span></a></li>
   <li><a href="ajoutSalle.php" class="waves-effect"><i class="material-icons">home</i>Ajouter une salle<span class="new badge" data-badge-caption=" "><?php echo $sal ?></span></a></li>
-  <li><a href="#!" class="waves-effect"><i class="material-icons">playlist_add</i>Ajouter une emploi</a></li>  
+  <li><a href="ajouterEmploi.php" class="waves-effect"><i class="material-icons">playlist_add</i>Ajouter une emploi</a></li>  
   <li><div class="divider"></div></li>
   <li><a href="afficherEtudiant.php" class="waves-effect"><i class="material-icons">assignment_ind</i>Etudiants<span class="new badge" data-badge-caption=" "><?php echo $etud ?></span></a></li>
   <li><a href="afficherEns.php" class="waves-effect"><i class="material-icons">list</i>Enseignant<span class="new badge" data-badge-caption=" "><?php echo $ens ?></span></a></li>
