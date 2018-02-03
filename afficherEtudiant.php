@@ -44,7 +44,7 @@
                 <td><?php echo $et['CodeEtudiant'] ?></td>
                 <td><?php echo $et['Email'] ?></td>
                 <td><?php echo $et['Adresse'] ?></td>
-                <td><?php echo $et['CodeClasse'] ?><a  onclick="display('<?php echo $et['CodeEtudiant'] ?>')" ><span class="new badge red" data-badge-caption="Supprimer"></a></span><a href="#"><span class="new badge orange" data-badge-caption="Editer"></span></a></td>
+                <td><?php echo $et['CodeClasse'] ?><a  onclick="display('<?php echo $et['CodeEtudiant'] ?>')" ><span class="new badge red" data-badge-caption="Supprimer"></a></span><a href="modifierEtudiant.php?code=<?php echo $et['CodeEtudiant'] ?>"><span class="new badge orange" data-badge-caption="Editer"></span></a></td>
               </tr>
             </tbody>
             <?php } ?>
@@ -73,7 +73,7 @@
                 <td><?php echo $et['CodeEtudiant'] ?></td>
                 <td><?php echo $et['Email'] ?></td>
                 <td><?php echo $et['Adresse'] ?></td>
-                <td><?php echo $et['CodeClasse'] ?><a  onclick="display('<?php echo $et['CodeEtudiant'] ?>')" ><span class="new badge red" data-badge-caption="Supprimer"></a></span><a href="#"><span class="new badge orange" data-badge-caption="Editer"></span></a></td>
+                <td><?php echo $et['CodeClasse'] ?><a  onclick="display('<?php echo $et['CodeEtudiant'] ?>')" ><span class="new badge red" data-badge-caption="Supprimer"></a></span><a href="modifierEtudiant.php?code=<?php echo $et['CodeEtudiant'] ?>"><span class="new badge orange" data-badge-caption="Editer"></span></a></td>
               </tr>
             </tbody>
             <?php } ?>
