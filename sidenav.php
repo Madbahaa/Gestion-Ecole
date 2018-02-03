@@ -30,5 +30,5 @@ $sal =  mysqli_num_rows($res5);
   <li><div class="divider"></div></li>
   <li><a href="afficherEtudiant.php" class="waves-effect"><i class="material-icons">assignment_ind</i>Etudiants<span class="new badge" data-badge-caption=" "><?php echo $etud ?></span></a></li>
   <li><a href="afficherEns.php" class="waves-effect"><i class="material-icons">list</i>Enseignant<span class="new badge" data-badge-caption=" "><?php echo $ens ?></span></a></li>
-  <li><a href="#!" class="waves-effect"><i class="material-icons">insert_invitation</i>Emplois du temps</a></li>
+  <li><a href="afficheEmploi.php" class="waves-effect"><i class="material-icons">insert_invitation</i>Emplois du temps</a></li>
 </ul>
