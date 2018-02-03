@@ -1,3 +1,10 @@
+<?php 
+  require_once("connexion.php");
+  $req = "select CodeClasse from classe";
+  $rs= mysqli_query($conn,$req) or die(mysql_error());
+  
+?>
+
 <!DOCTYPE html>
   <html>
     <head>
@@ -19,7 +26,7 @@
     <form class="col s8" method="post" action="ajoutClasseFunction.php">
       <div class="row">
         <div class="input-field col s12">
-          <input id="first_name" name="code" type="text" class="validate">
+          <input id="first_name" name="code" type="text" class="validate" required>
           <label for="first_name">Code classe</label>
         </div>
         
@@ -32,6 +39,29 @@
         </button>
               
     </form>
+    
+    <div class="row">
+      <div class="col s8">
+      
+    <br><br>
+      <h4>Liste des Classes</h4>
+      <table>
+        <thead>
+          <tr>
+              <th>Classe</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+          <?php while($classe = mysqli_fetch_assoc($rs)){?>
+            <td><?php echo $classe['CodeClasse']?></td>
+            <?php }?>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
   </div>
 
 

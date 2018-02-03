@@ -1,3 +1,8 @@
+<?php 
+  require_once("connexion.php");
+  $req = "select CodeClasse from classe";
+  $rs= mysqli_query($conn,$req) or die(mysql_error());
+?>
 <!DOCTYPE html>
   <html>
     <head>
@@ -49,8 +54,9 @@
       <label>Classe</label>
         <select class="browser-default" name="classe">
           <option value="" disabled selected>Choisir une classe</option>
-          <option value="DSI 1">DSI 1</option>
-          <option value="DSI 2">DSI 2</option>
+          <?php while($classe = mysqli_fetch_assoc($rs)){?>
+          <option value="<?php echo $classe['CodeClasse']?>"><?php echo $classe['CodeClasse']?></option>
+          <?php }?>
         </select>
         <br>
         <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter

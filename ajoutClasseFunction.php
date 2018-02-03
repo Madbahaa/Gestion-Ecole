@@ -2,9 +2,11 @@
     require_once("connexion.php");
 
     $code = $_POST['code'];   
+    $verif = "select CodeClasse from classe where CodeClasse = '$code'";
+  $result = mysqli_query($conn, $verif);
+  $num_rows = mysqli_num_rows($result);
 
-    $req = "insert into classe(CodeClasse) values ('$code')";
-    mysqli_query($conn,$req) or die(mysql_error());
+    
   ?>
   <!DOCTYPE html>
   <html>
@@ -22,7 +24,11 @@
     <body>
           
     <?php require "sidenav.php"?>
-      
+    <?php
+      if (($num_rows) == 0){
+        $req = "insert into classe(CodeClasse) values ('$code')";
+        mysqli_query($conn,$req) or die(mysql_error());
+    ?>  
     <div class="container">
       <div  class="row">
         <div class="col s12 m12">
@@ -33,6 +39,16 @@
         </div>
       </div>
     </div>
+    <?php }
+    else{
+      ?>
+    <blockquote>
+      Cette Classe : <b><?php echo $code ?></b> <br> est déja ajoutée !
+    </blockquote>
+    
+    <?php
+    }
+?>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
