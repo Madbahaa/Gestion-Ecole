@@ -8,7 +8,6 @@
     $adresse = $_POST['adresse'];
     $classe = $_POST['classe'];
     $verif = "select CodeEtudiant from etudiant where CodeEtudiant = '$cne'";
-    //$verif="SELECT IF( EXISTS(select CodeEtudiant from etudiant where CodeEtudiant = '$cne') ,1,0)";
     $result = mysqli_query($conn, $verif);
     $num_rows = mysqli_num_rows($result);
     

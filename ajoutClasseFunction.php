@@ -1,14 +1,9 @@
 <?php 
     require_once("connexion.php");
 
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $cin = $_POST['cin'];
-    $email = $_POST['email'];
-    $adresse = $_POST['adresse'];
-    
+    $code = $_POST['code'];   
 
-    $req = "insert into enseignant(Nom,Prenom,CIN,Email,Adresse) values ('$nom','$prenom','$cin','$email','$adresse')";
+    $req = "insert into classe(CodeClasse) values ('$code')";
     mysqli_query($conn,$req) or die(mysql_error());
   ?>
   <!DOCTYPE html>
@@ -34,30 +29,7 @@
           <h3 class="center teal-text">
           <i class="material-icons small teal-text">check_circle</i> Ajouté avec succés !
           </h3>
-          <br><br>
-          <table>
-            <thead>
-              <tr>
-                  <th>Nom</th>
-                  <th>Prenom</th>
-                  <th>CIN</th>
-                  <th>Email</th>
-                  <th>Adresse</th>
-                           
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td><?php echo $nom ?></td>
-                <td><?php echo $prenom ?></td>
-                <td><?php echo $cin ?></td>
-                <td><?php echo $email?></td>
-                <td><?php echo $adresse?></td>
-               
-              </tr>
-            </tbody>
-          </table>
+          
         </div>
       </div>
     </div>

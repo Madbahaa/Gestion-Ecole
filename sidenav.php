@@ -2,7 +2,8 @@
 require_once("connexion.php");
 $res1 = mysqli_query($conn,"select * from etudiant");
 $etud = mysqli_num_rows($res1);
-
+$res2 = mysqli_query($conn,"select * from enseignant");
+$ens =  mysqli_num_rows($res2);
 
 ?>
 <ul id="slide-out" class="side-nav fixed">
@@ -20,5 +21,6 @@ $etud = mysqli_num_rows($res1);
   <li><a href="ajoutClasse.php" class="waves-effect"><i class="material-icons">add_circle_outline</i>Ajouter une classe</a></li>
   <li><a href="#!" class="waves-effect"><i class="material-icons">insert_invitation</i>Emplois du temps</a></li>
   <li><div class="divider"></div></li>
-  <li><a href="afficherEtudiant.php" class="waves-effect"><i class="material-icons">insert_invitation</i>Etudiants<span class="new badge" data-badge-caption=" "><?php echo $etud ?></span></a></li>
+  <li><a href="afficherEtudiant.php" class="waves-effect"><i class="material-icons">assignment_ind</i>Etudiants<span class="new badge" data-badge-caption=" "><?php echo $etud ?></span></a></li>
+  <li><a href="afficherEns.php" class="waves-effect"><i class="material-icons">list</i>Enseignant<span class="new badge" data-badge-caption=" "><?php echo $ens ?></span></a></li>
 </ul>

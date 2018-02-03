@@ -44,7 +44,7 @@
                 <td><?php echo $et['CodeEtudiant'] ?></td>
                 <td><?php echo $et['Email'] ?></td>
                 <td><?php echo $et['Adresse'] ?></td>
-                <td><?php echo $et['CodeClasse'] ?><a href="supprimerEtudiant.php?code=<?php echo $et['CodeEtudiant'] ?>"><span class="new badge red" data-badge-caption="Supprimer"></a></span><a href="#"><span class="new badge orange" data-badge-caption="Editer"></span></a></td>
+                <td><?php echo $et['CodeClasse'] ?><a  onclick="display('<?php echo $et['CodeEtudiant'] ?>')" ><span class="new badge red" data-badge-caption="Supprimer"></a></span><a href="#"><span class="new badge orange" data-badge-caption="Editer"></span></a></td>
               </tr>
             </tbody>
             <?php } ?>
@@ -73,7 +73,7 @@
                 <td><?php echo $et['CodeEtudiant'] ?></td>
                 <td><?php echo $et['Email'] ?></td>
                 <td><?php echo $et['Adresse'] ?></td>
-                <td><?php echo $et['CodeClasse'] ?><a href="supprimerEtudiant.php?code=<?php echo $et['CodeEtudiant'] ?>"><span class="new badge red" data-badge-caption="Supprimer"></a></span><a href="#"><span class="new badge orange" data-badge-caption="Editer"></span></a></td>
+                <td><?php echo $et['CodeClasse'] ?><a  onclick="display('<?php echo $et['CodeEtudiant'] ?>')" ><span class="new badge red" data-badge-caption="Supprimer"></a></span><a href="#"><span class="new badge orange" data-badge-caption="Editer"></span></a></td>
               </tr>
             </tbody>
             <?php } ?>
@@ -96,3 +96,10 @@
       padding-left: 200px;
     }
   </style>
+
+  <script>
+    function display(e){
+    var $toastContent = $('<span>Voulez vous supprimer cet etudiant ?</span>').add($('<a href="supprimerEtudiant.php?code='+e+'"><button class="btn-flat toast-action">OUI</button></a>'));
+     Materialize.toast($toastContent);}
+     
+  </script>

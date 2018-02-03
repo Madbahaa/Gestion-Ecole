@@ -6,10 +6,11 @@
     $cin = $_POST['cin'];
     $email = $_POST['email'];
     $adresse = $_POST['adresse'];
-    
+    $verif = "select CIN from enseignant where CIN = '$cin'";
+    $result = mysqli_query($conn, $verif);
+    $num_rows = mysqli_num_rows($result);
 
-    $req = "insert into enseignant(Nom,Prenom,CIN,Email,Adresse) values ('$nom','$prenom','$cin','$email','$adresse')";
-    mysqli_query($conn,$req) or die(mysql_error());
+    
   ?>
   <!DOCTYPE html>
   <html>
@@ -27,6 +28,11 @@
     <body>
           
     <?php require "sidenav.php"?>
+    <?php
+      if (($num_rows) == 0){
+        $req = "insert into enseignant(Nom,Prenom,CIN,Email,Adresse) values ('$nom','$prenom','$cin','$email','$adresse')";
+        mysqli_query($conn,$req) or die(mysql_error());
+    ?>
       
     <div class="container">
       <div  class="row">
@@ -61,6 +67,16 @@
         </div>
       </div>
     </div>
+    <?php }
+    else{
+      ?>
+    <blockquote>
+      Le code : <b><?php echo $cin ?></b> <br> est utilisé pour un autre enseignant !
+    </blockquote>
+    
+    <?php
+    }
+?>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

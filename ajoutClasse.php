@@ -16,10 +16,10 @@
     <?php require "sidenav.php"?>
     <div class="row">
     <h5 class="teal-text" style="margin-left: 20px;">Ajouter une Classe</h5>
-    <form class="col s8" method="post" action="functions/ajoutEtudiantFunction.php">
+    <form class="col s8" method="post" action="ajoutClasseFunction.php">
       <div class="row">
         <div class="input-field col s12">
-          <input id="first_name" name="prenom" type="text" class="validate">
+          <input id="first_name" name="code" type="text" class="validate">
           <label for="first_name">Code classe</label>
         </div>
         
