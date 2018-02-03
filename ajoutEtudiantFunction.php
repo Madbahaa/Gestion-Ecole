@@ -7,9 +7,12 @@
     $email = $_POST['email'];
     $adresse = $_POST['adresse'];
     $classe = $_POST['classe'];
-
-    $req = "insert into etudiant(Nom,Prenom,Email,Adresse,CodeEtudiant,CodeClasse) values ('$nom','$prenom','$email','$adresse','$cne','$classe')";
-    mysqli_query($conn,$req) or die(mysql_error());
+    $verif = "select CodeEtudiant from etudiant where CodeEtudiant = '$cne'";
+    //$verif="SELECT IF( EXISTS(select CodeEtudiant from etudiant where CodeEtudiant = '$cne') ,1,0)";
+    $result = mysqli_query($conn, $verif);
+    $num_rows = mysqli_num_rows($result);
+    
+    
   ?>
   <!DOCTYPE html>
   <html>
@@ -27,10 +30,15 @@
     <body>
           
     <?php require "sidenav.php"?>
-      
+    <?php
+      if (($num_rows) == 0){
+        $req = "insert into etudiant(Nom,Prenom,Email,Adresse,CodeEtudiant,CodeClasse) values ('$nom','$prenom','$email','$adresse','$cne','$classe')";
+        mysqli_query($conn,$req) or die(mysql_error());
+    ?>  
     <div class="container">
       <div  class="row">
         <div class="col s12 m12">
+       
           <h3 class="center teal-text">
           <i class="material-icons small teal-text">check_circle</i> Ajouté avec succés !
           </h3>
@@ -58,9 +66,20 @@
               </tr>
             </tbody>
           </table>
+          
         </div>
       </div>
     </div>
+    <?php }
+    else{
+      ?>
+    <blockquote>
+      Le code : <b><?php echo $cne ?></b> <br> est utilisé pour un autre étudiant !
+    </blockquote>
+    
+    <?php
+    }
+?>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
@@ -76,6 +95,7 @@
       padding-left: 320px;
     }
   </style>
+   
 
 
  
