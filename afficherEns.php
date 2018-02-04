@@ -42,7 +42,7 @@
                 <td><?php echo $ens['Prenom'] ?></td>
                 <td><?php echo $ens['CIN'] ?></td>
                 <td><?php echo $ens['Email'] ?></td>
-                <td><?php echo $ens['Adresse'] ?><a href="supprimerEtudiant.php?code=<?php echo $et['CodeEtudiant'] ?>"><span class="new badge red" data-badge-caption="Supprimer"></a></span><a href="#"><span class="new badge orange" data-badge-caption="Editer"></span></a></td>
+                <td><?php echo $ens['Adresse'] ?><a href="supprimerEtudiant.php?code=<?php echo $et['CodeEtudiant'] ?>"><?php if($_SESSION['niv'] == 0){?><span class="new badge red" data-badge-caption="Supprimer"></a></span><a href="#"><span class="new badge orange" data-badge-caption="Editer"></span></a></td><?php } ?>
               </tr>
             </tbody>
             <?php } ?>

@@ -1,4 +1,9 @@
 <?php 
+session_start();
+if(!isset($_SESSION['niv'])){
+  header("location:index.html");
+}
+
 require_once("connexion.php");
 $res1 = mysqli_query($conn,"select * from etudiant");
 $etud = mysqli_num_rows($res1);
@@ -21,12 +26,16 @@ $sal =  mysqli_num_rows($res5);
     <span class="white-text name">Mouad Baha-eddine</span>
     <span class="white-text email">madbahaa@gmail.com</span>
   </div></li>
+  <?php if($_SESSION['niv'] == 0 ){?>
   <li><a href="ajoutEtudiant.php" class="waves-effect"><i class="material-icons">group_add</i>Ajouter un étudiant</a></li>
   <li><a href="ajoutEns.php" class="waves-effect"><i class="material-icons">person_add</i>Ajouter un enseignant</a></li>
   <li><a href="ajoutMatiere.php" class="waves-effect"><i class="material-icons">library_books</i>Ajouter matiere<span class="new badge" data-badge-caption=" "><?php echo $mtr ?></span></a></li>
   <li><a href="ajoutClasse.php" class="waves-effect"><i class="material-icons">add_circle_outline</i>Ajouter une classe<span class="new badge" data-badge-caption=" "><?php echo $cls ?></span></a></li>
   <li><a href="ajoutSalle.php" class="waves-effect"><i class="material-icons">home</i>Ajouter une salle<span class="new badge" data-badge-caption=" "><?php echo $sal ?></span></a></li>
+  <?php }?>
+  <?php if($_SESSION['niv'] == 0 || $_SESSION['niv'] == 1){?>
   <li><a href="ajouterEmploi.php" class="waves-effect"><i class="material-icons">playlist_add</i>Ajouter une emploi</a></li>  
+  <?php }?>
   <li><div class="divider"></div></li>
   <li><a href="afficherEtudiant.php" class="waves-effect"><i class="material-icons">assignment_ind</i>Etudiants<span class="new badge" data-badge-caption=" "><?php echo $etud ?></span></a></li>
   <li><a href="afficherEns.php" class="waves-effect"><i class="material-icons">list</i>Enseignant<span class="new badge" data-badge-caption=" "><?php echo $ens ?></span></a></li>

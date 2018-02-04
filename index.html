@@ -19,31 +19,29 @@
               <span class="card-title">Se Connecter</span>
               <hr>
               <div class="row">
-    <form class="col s12">
+    <form class="col s12" method="post" action="valider.php">
       <div class="row">
         <div class="input-field">
           <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Nom d'utilisateur</label>
+          <input id="icon_prefix" type="text" name="pseudo" class="validate" required>
+          <label for="icon_prefix">Pseudo</label>
         </div>
       </div>
       <div class="row">
       <div class="input-field">
           <i class="material-icons prefix">fingerprint</i>
-          <input id="icon_telephone" type="tel" class="validate">
+          <input id="icon_telephone" type="password" name="pass" class="validate" required>
           <label for="icon_telephone">Mot de passe</label>
         </div>
       </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+        <i class="material-icons right">send</i>
+      </button>
     </form>
   </div>
         
             </div>
-            <div class="card-action">
-              <div>
-              <a href="dashboard.php" class="teal-text">Valider</a>
-              </div>
-              
-            </div>
+            
           </div>
         </div>
       </div>
